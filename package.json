@@ -1,0 +1,49 @@
+{
+  "name": "my-react-app",
+  "version": "1.0.0",
+  "description": "react项目脚手架，主要用于学习",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.dev.js --mode=development",
+    "build": "rimraf dist && webpack --config webpack.prod.js --mode=production && copyfiles -u 1 src/*.ico dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CAaRrLl/my-react-app.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "CAaRrLl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CAaRrLl/my-react-app/issues"
+  },
+  "homepage": "https://github.com/CAaRrLl/my-react-app#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "copyfiles": "^2.0.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.5.3",
+    "less-loader": "^4.1.0",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.3"
+  },
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
+}
