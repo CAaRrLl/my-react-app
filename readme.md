@@ -38,4 +38,5 @@ copyfiles           //用于拷贝不经过webpack编译的文件
 ```javascript
 react
 react-dom
+react-router-dom
 ```

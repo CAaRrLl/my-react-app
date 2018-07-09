@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import Welcome from './page/welcome/welcome';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Welcome, { Text } from './page/welcome/welcome';
 import './index.less';
 
-class Index extends Component {
-    render () {
-        return (
-            <div>
-                <Welcome></Welcome>
-            </div>
-        )
-    }
-}
+const routes = (
+    <BrowserRouter>
+        <Route path="/" component={Welcome}/>
+    </BrowserRouter>
+);
 
-ReactDOM.render(<Index/>, document.getElementById('app'));
+const app = document.getElementById('app');
+
+ReactDOM.render(routes, app);

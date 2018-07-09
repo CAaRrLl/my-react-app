@@ -6,10 +6,6 @@ module.exports = {
     entry: {
         index: path.resolve(config.src_path, 'index.jsx')
     },
-    output: {
-        path: config.build_path,
-        filename: '[name].[chunkhash].js'
-    },
     resolve: {
         extensions: ['.js', '.jsx']
     },
@@ -53,6 +49,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: config.app_name,
             template: path.resolve(config.src_path, 'index.html'),
+            filename: 'index.html',
             inject: 'body'
         })
     ],
