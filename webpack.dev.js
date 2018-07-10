@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var config = require('./config');
 
 module.exports = merge(commonConf, {
+    mode: 'development',
     devtool: 'eval-source-map',
     devServer: {
         contentBase: config.src_path,
@@ -19,4 +20,4 @@ module.exports = merge(commonConf, {
     plugins: [
         new webpack.HotModuleReplacementPlugin()
     ]
-})
+});

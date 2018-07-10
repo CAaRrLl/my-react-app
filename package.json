@@ -4,8 +4,8 @@
   "description": "react项目脚手架，主要用于学习",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js --mode=development",
-    "build": "rimraf dist && webpack --config webpack.prod.js --mode=production && copyfiles -u 1 src/*.ico dist"
+    "dev": "webpack-dev-server --config webpack.dev.js",
+    "build": "rimraf dist && webpack --config webpack.prod.js && copyfiles -u 1 src/*.ico dist"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "copyfiles": "^2.0.0",

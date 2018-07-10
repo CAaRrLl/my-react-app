@@ -25,7 +25,6 @@ export default class Welcome extends Component {
 export class Text extends Component {
     constructor (props) {
         super(props);
-        console.log(this.props.match.params.id);
     }
     render () {
         const id = this.props.match.params.id;
