@@ -6,9 +6,11 @@ module.exports = {
     entry: {
         index: path.resolve(config.src_path, 'index.jsx')
     },
+
     resolve: {
         extensions: ['.js', '.jsx']
     },
+
     module: {
         rules: [
             {
@@ -19,19 +21,13 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader',
+                loader: 'style-loader!css-loader!postcss-loader',
                 exclude: path.resolve(config.root_path, 'node_modules'),
                 include: config.src_path
             },
             {
                 test: /\.less$/,
-                loader: 'style-loader!css-loader!less-loader',
-                exclude: path.resolve(config.root_path, 'node_modules'),
-                include: config.src_path
-            },
-            {
-                test: /\.sass$/,
-                loader: 'style-loader!css-loader!sass-loader',
+                loader: 'style-loader!css-loader!postcss-loader!less-loader',
                 exclude: path.resolve(config.root_path, 'node_modules'),
                 include: config.src_path
             },
@@ -45,6 +41,7 @@ module.exports = {
             }
         ]
     },
+
     plugins: [
         new HtmlWebpackPlugin({
             title: config.app_name,

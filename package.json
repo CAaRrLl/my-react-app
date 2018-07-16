@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "rimraf dist && webpack --config webpack.prod.js && copyfiles -u 1 src/*.ico dist"
+    "build:prod": "npm run clean && npm run build",
+    "dll": "npm run clean && webpack --config webpack.dll.js",
+    "build:dll": "cross-env BUILD=DLL npm run build",
+    "clean": "rimraf dist",
+    "build": "webpack --config webpack.prod.js && copyfiles -u 1 src/*.ico dist"
   },
   "repository": {
     "type": "git",
@@ -21,6 +25,7 @@
   },
   "homepage": "https://github.com/CAaRrLl/my-react-app#readme",
   "devDependencies": {
+    "autoprefixer": "^8.6.5",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -30,9 +35,11 @@
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "file-loader": "^1.1.11",
+    "html-webpack-include-assets-plugin": "^1.0.4",
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.5.3",
     "less-loader": "^4.1.0",
+    "postcss-loader": "^2.1.6",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",

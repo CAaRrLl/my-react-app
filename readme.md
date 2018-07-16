@@ -20,6 +20,9 @@ babel-preset-react  //支持jsx语法
 css-loader          //用于打包css文件
 file-loader         //用于打包文件
 html-webpack-plugin //根据模板生成的html文件
+html-webpack-include-assets-plugin  //向指定html文件嵌入资源文件
+postcss-loader      //强大的处理css的插件系统
+autoprefixer        //postcss的一个插件，自动为部分css添加前缀来兼容不同厂商的浏览器
 less-loader         //将less文件编译成css
 less
 sass-loader         //将sass文件编译成css

@@ -17,6 +17,7 @@ export default class Welcome extends Component {
                     <li><Link to="/text/1">author</Link></li>
                 </ul>
                 <Route path="/text/:id" component={Text}></Route>
+                <Example></Example>
             </div>
         )
     }
@@ -33,3 +34,46 @@ export class Text extends Component {
         )
     }
 }
+
+class Example extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        val: {
+            v: 1
+        }
+      };
+    }
+    
+    componentWillMount() {
+        console.log('componentWillMount', this.state.val);
+        setTimeout(() => {
+            this.setState({val: {v: 22}});
+            console.log('sync0', this.state.val.v)
+        }, 1000);
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate', this.state.val);
+    }
+
+    componentWillUpdate() {
+        console.log('componentWillUpdate', this.state.val);
+    }
+
+    shouldComponentUpdate() {
+        console.log('shouldComponentUpdate', this.state.val);
+        return true;
+    }
+  
+    render() {
+        console.log('render', this.state.val);
+        const val = { v: 11 };
+      return (
+          <div>
+            <button onClick={() => { this.setState({val: val});console.log('sync1', this.state.val.v) }}>改变state</button>
+            <div>{ this.state.val.v }</div>
+          </div>
+      )
+    }
+  };
