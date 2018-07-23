@@ -6,6 +6,12 @@ import './welcome.less';
 export default class Welcome extends Component {
     constructor (props) {
         super(props);
+        this.ref = React.createRef();
+        this.textRef = React.createRef();
+    }
+    componentDidMount () {
+        console.log('Ref', this.ref.current);
+        console.log('textRef', this.textRef);
     }
     render () {
         return (
@@ -13,11 +19,12 @@ export default class Welcome extends Component {
                 <h1>WECLOME</h1>
                 <img src={logo} />
                 <ul>
-                    <li><Link to="/text/0">description</Link></li>
-                    <li><Link to="/text/1">author</Link></li>
+                    <li><Link to="/welcome/text/0">description</Link></li>
+                    <li><Link to="/welcome/text/1">author</Link></li>
                 </ul>
-                <Route path="/text/:id" component={Text}></Route>
-                <Example></Example>
+                <Route path="/welcome/text/:id" component={Text}></Route>
+                <Example ref={this.ref}></Example>
+                <textarea ref={this.textRef}></textarea>
             </div>
         )
     }

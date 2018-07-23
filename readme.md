@@ -15,6 +15,7 @@ npm init    //创建package.json
 babel-core          
 babel-loader
 babel-plugin-syntax-dynamic-import //支持import()语法
+babel-plugin-transform-class-properties //使class的属性支持箭头函数
 babel-preset-env    //支持es2015、2016、2017语法
 babel-preset-react  //支持jsx语法
 css-loader          //用于打包css文件

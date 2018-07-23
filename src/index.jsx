@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Welcome from './page/welcome/welcome';
 import AsyncComponent from './common/async-load/async-component';
 import './index.less';
@@ -11,7 +11,12 @@ const Lazy2 = AsyncComponent(() => import(/* webpackChunkName: "lazy2" */ './pag
 class App extends Component {
     render () {
         return (
-            <div>{ this.props.children }</div>
+            <div style={{ textAlign: 'center' }}>
+                <a href="/welcome">welcome</a>
+                <a href="/lazy/1">lazy1</a>
+                <a href="/lazy/2">lazy2</a>
+                { this.props.children }
+            </div>
         )
     }
 }
@@ -19,9 +24,11 @@ class App extends Component {
 const routes = (
     <BrowserRouter>
         <App>
-            <Route path="/" component={Welcome}/>
-            <Route path="/lazy/1" component={Lazy1}/>
-            <Route path="/lazy/2" component={Lazy2}/>
+            <Switch path="/">
+                <Route path="/welcome" component={Welcome}/>
+                <Route path="/lazy/1" component={Lazy1}/>
+                <Route path="/lazy/2" component={Lazy2}/>
+            </Switch>
         </App>
     </BrowserRouter>
 );
