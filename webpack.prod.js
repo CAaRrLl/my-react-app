@@ -3,6 +3,7 @@ var merge = require('webpack-merge');
 var config = require('./config');
 var webpack = require('webpack');
 var HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 var plugins = [];
 
@@ -24,9 +25,16 @@ if(process.env.BUILD === 'DLL') {
         })
     );
 }
+plugins.push(
+    new UglifyJsPlugin({
+        parallel: true
+    })
+);
 
 module.exports = merge(commonConf, {
     mode: 'production',
+
+    devtool: 'source-map',
 
     output: {
         path: config.build_path,

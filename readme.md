@@ -28,7 +28,7 @@ less-loader         //将less文件编译成css
 less
 sass-loader         //将sass文件编译成css
 style-loader        //将css嵌入html的head标签中
-uglifyjs-webpack-plugin
+uglifyjs-webpack-plugin //压缩js代码
 url-loader          //对file-loader的一层封装用于打包图片
 webpack            
 webpack-merge       //合并多个webpack配置
@@ -38,7 +38,7 @@ cross-env           //兼容不同平台的环境变量设置
 copyfiles           //用于拷贝不经过webpack编译的文件
 ```
 
-#### 开发环境依赖的包
+#### 生产环境依赖的包
 
 ```javascript
 react
